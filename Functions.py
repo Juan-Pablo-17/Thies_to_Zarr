@@ -139,12 +139,16 @@ def get_events(ds, time_lenght=10, time_break=5, tot_counts=5):
     param time_break: Maximum duration of a time break between events
     param tot_counts: Minimum total number of particles within the count bin spectra
     """
-    ev = ds.nd.sum(dim='diameter').where(ds.nd.sum(dim='diameter') > tot_counts).compute()
+    ev = ds.nd_filt.sum(dim='diameter').where(ds.nd_filt.sum(dim='diameter') > tot_counts).compute()
     ev = ev[ev.notnull()]
+
+    # Time difference between measurements
     a = ev.time.diff('time').to_dataframe('date') 
     sec = pd.Timedelta('10min') 
     breaks = a >= sec
     groups = breaks.cumsum()
+
+    # Lists of starts and ends
     start = [i[1].index.min() for i in groups.groupby('date') if i[1].shape[0] > time_lenght]
     end = [i[1].index.max() for i in groups.groupby('date') if i[1].shape[0] > time_lenght]
     return start, end
