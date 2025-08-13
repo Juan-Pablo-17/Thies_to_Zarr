@@ -1,5 +1,6 @@
 import xarray as xr
 import numpy as np
+import pandas as pd
 
 # 📌 Atlas & Ulbrich (1977) fall speed
 def atlas_ulbrich_velocity(diameter):
