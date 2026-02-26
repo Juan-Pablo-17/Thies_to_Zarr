@@ -84,7 +84,7 @@ def calculate_nd(raw, diameter, velocity, delta_t=60):
 def calculate_parameters_dsd(nd, diameter):
     """
     A. Tokay, D. B. Wolff, and W. A. Petersen, “Evaluation of the New Version
-    of the Laser-Optical Disdrometer, OTT Parsivel2,” Journal of Atmospheric 
+    of the Laser-Optical D  isdrometer, OTT Parsivel2,” Journal of Atmospheric 
     and Oceanic Technology, vol. 31, no. 6, pp. 1276–1288, Jun. 2014, 
     doi: 10.1175/jtech-d-13-00174.1.
     """
