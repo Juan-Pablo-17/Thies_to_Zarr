@@ -160,7 +160,7 @@ def Annual_Precipitation_Cycle(R, t):
     """
     r_int_minute = (R / t).to_series() # mm/min
 
-    r_int_month = r_int_minute.resample('M').sum(min_count=1) # mm/month
+    r_int_month = r_int_minute.resample('ME').sum(min_count=1) # mm/month
 
     annual_cycle = r_int_month.groupby(r_int_month.index.month).mean() # average monthly rainfall rate
 
